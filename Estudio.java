@@ -1,22 +1,22 @@
 import java.util.Date;
 
-/**
- * @author Nicolas Jimenez
- * @version 1.0
- * @created 03-nov.-2020 09:21:53
- */
 public class Estudio {
 
 	private boolean asistencia;
 	private Date fechaRealizar;
-	public Prestacion m_Prestación;
+	private Prestacion m_Prestacion;
 
-	public Estudio(){
 
+	//CONSTRUCTORES
+	public Estudio(){}
+
+	public Estudio(boolean asistencia, Date fechaRealizar, Prestacion m_Prestacion){
+		this.asistencia = asistencia;
+		this.fechaRealizar = fechaRealizar;
+		this.m_Prestacion = m_Prestacion;
 	}
 
-	public void finalize() throws Throwable {
+	//GETTERS Y SETTERS
 
-	}
 
 }

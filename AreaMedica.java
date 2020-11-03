@@ -1,20 +1,26 @@
 
-
-/**
- * @author Nicolas Jimenez
- * @version 1.0
- * @created 03-nov.-2020 09:21:52
- */
 public class AreaMedica {
 
 	private String nombreArea;
 
-	public AreaMedica(){
 
+	//CONSTRUCTORES
+	public AreaMedica(){}
+
+	public AreaMedica(String nombreArea){
+		this.nombreArea = nombreArea;
 	}
 
-	public void finalize() throws Throwable {
-
+	// GETTERS Y SETTERS
+	public String getNombreArea(){
+		return this.nombreArea;
 	}
+
+	public void setNombreArea(String nombreArea){
+		this.nombreArea = nombreArea;
+	}
+
+
+
 
 }

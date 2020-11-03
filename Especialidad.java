@@ -1,21 +1,33 @@
 
 
-/**
- * @author Nicolas Jimenez
- * @version 1.0
- * @created 03-nov.-2020 09:21:53
- */
 public class Especialidad {
 
 	private String nombreEspecialidad;
 	private Medico m_Medico;
 
-	public Especialidad(){
+	//CONSTRUCTORES
+	public Especialidad(){}
 
+	public Especialidad(String nombreEspecialidad, Medico m_Medico){
+		this.nombreEspecialidad = nombreEspecialidad;
+		this.m_Medico = m_Medico;
 	}
 
-	public void finalize() throws Throwable {
+	//GETTERS Y SETTERS
+	public Medico getNombreEspecialidad(){
+		return this.nombreEspecialidad; 
+	}
 
+	public Medico getM_Medico(){
+		return this.m_Medico;
+	}
+
+	public void setNombreEspecialidad(String nombreEspecialidad){
+		this.nombreEspecialidad = nombreEspecialidad;
+	}
+
+	public void setM_Medico(Medico m_Medico){
+		this.m_Medico = m_Medico;
 	}
 
 }

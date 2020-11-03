@@ -1,10 +1,5 @@
+import java.util.Scanner;
 
-
-/**
- * @author Nicolas Jimenez
- * @version 1.0
- * @created 03-nov.-2020 09:21:53
- */
 public class Prestacion {
 
 	private Medico doctor;
@@ -13,16 +8,29 @@ public class Prestacion {
 	public AreaMedica m_AreaMedica;
 	private Consultorio m_Consultorio;
 
-	public Prestacion(){
 
-	}
+	//COONSTRUCTORES
+	public Prestacion(){}
 
-	public void finalize() throws Throwable {
-
+	public Prestacion(Medico doctor, String nombrePrestación, Medico m_Medico, AreaMedica m_AreaMedica, Consultorio m_Consultorio){
+		this.doctor = doctor;
+		this.nombrePrestación = nombrePrestación;
+		this.m_Medico = m_Medico;
+		this.m_AreaMedica = m_AreaMedica;
+		this.m_Consultorio = m_Consultorio;
 	}
 
 	public String recetar(){
-		return "";
+
+		//pido el ingreso de la receta
+		System.out.println("Ingrese receta: ");
+
+		//obtengo los caracteres tipeados
+		Scanner entradaScanner = new Scanner(System.in);
+		String entradaTeclado = "";
+		entradaTeclado = entradaScanner.nextLine();
+
+		return "Receta: \n" + entradaTeclado;
 	}
 
 }
