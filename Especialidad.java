@@ -14,7 +14,7 @@ public class Especialidad {
 	}
 
 	//GETTERS Y SETTERS
-	public Medico getNombreEspecialidad(){
+	public String getNombreEspecialidad(){
 		return this.nombreEspecialidad; 
 	}
 

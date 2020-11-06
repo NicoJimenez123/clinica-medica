@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class Medico {
 
@@ -35,7 +36,7 @@ public class Medico {
 		//pido el ingreso de datos para prestacion
 		System.out.println("Ingrese el nombre de la  prestacion: ");
 
-		String entradaScanner = new Scanner(System.in);
+		Scanner entradaScanner = new Scanner(System.in);
 		
 		prestacion = entradaScanner.nextLine();
 

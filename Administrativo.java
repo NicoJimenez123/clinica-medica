@@ -1,32 +1,16 @@
-import java.util.List;
-
 public class Administrativo {
 
-	private Turno m_Turno;
-	public Paciente m_Paciente;
-
-	public Administrativo(){
-
+	protected String user;
+	
+	public Administrativo(String user){
+		this.user = user;
 	}
 
-	public void finalize() throws Throwable {
-
+	public String getUser() {
+		return user;
 	}
 
-	public boolean brindarTurno(){
-		return false;
+	public void setUser(String user) {
+		this.user = user;
 	}
-
-	public List<Especialidad> especialidadesTurnosDisponibles(){
-		return null;
-	}
-
-	public List<Prestacion> verPrestaciones(){
-		return null;
-	}
-
-	public List<Turno> verTurnos(){
-		return null;
-	}
-
 }
