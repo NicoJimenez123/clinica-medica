@@ -1,24 +1,32 @@
 
-
-/**
- * @author Nicolas Jimenez
- * @version 1.0
- * @created 03-nov.-2020 09:21:53
- */
 public class Laboratorio {
-
+	
 	private Estudio estudio;
 
-	public Laboratorio(){
-
+	public Laboratorio() {
+		super();
+		
 	}
 
-	public void finalize() throws Throwable {
-
+	public Laboratorio(Estudio estudio) {
+		super();
+		this.estudio = estudio;
 	}
 
-	public boolean realizarEstudio(){
+	public Estudio getEstudio() {
+		return estudio;
+	}
+
+	public void setEstudio(Estudio estudio) {
+		this.estudio = estudio;
+	}
+	
+	public boolean realizaEstudio() {
 		return false;
 	}
+	
+		
+		
+	
 
 }
