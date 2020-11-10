@@ -71,8 +71,7 @@ public class SistemaInterno {
 	public List<Paciente> contarInasistenciasPacientes(){
 		List<Paciente> pacientesInasistentes = new ArrayList<Paciente>();
 		HashMap<Paciente, Integer> pacientesEInasistencias = new HashMap<Paciente,Integer>();
-		// Primero reviso los turnos que no fueron concurridos y los guardo en una lista aparte
-		List<Turno> turnosNoConcurridos = new ArrayList<Turno>();
+		// Reviso los turnos que no fueron concurridos
 		for(Turno t : this.turnos) {
 			if(!t.fueConcurrido()) {
 				// Voy contando las inasistencias por paciente mientras lo guardo en un diccionaro del tipo Paciente-Inasistencias
