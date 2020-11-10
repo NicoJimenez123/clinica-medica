@@ -10,7 +10,7 @@ public class Turno {
     private Medico medico;
     private Paciente paciente;
     private List<Turno> Turno;
-    
+    private boolean turnoConcurrido;
 	
     
     public Turno(int consultorio2, Date fecha, Date horaFinaliacion, Date horaInicio, Medico medico,
@@ -22,6 +22,7 @@ public class Turno {
 		this.horaInicio = horaInicio;
 		this.medico = medico;
 		this.paciente = paciente;
+		this.turnoConcurrido = false;
 	}
 
 
@@ -94,6 +95,12 @@ public class Turno {
 		this.paciente = paciente;
 	}
     
+    public boolean fueConcurrido() {
+    	return this.turnoConcurrido;
+    }
     
+    public void setConcurrencia(boolean concurrido) {
+    	this.turnoConcurrido = concurrido;
+    }
     
 }
