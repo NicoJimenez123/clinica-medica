@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 /**
@@ -10,10 +11,17 @@ public class SistemaInterno {
 
 	private List<Administrativo> administrativos;
 	private BaseDeDatos db;
+	private List<Turno> turnos;
+	private List<Consultorio> consultorios;
+	private List<Prestacion> prestaciones;
 	
 	public SistemaInterno(){
+		// Habria que hacer un metodo para rellenar estos atributos y no tener que escribir a cada rato
 		this.administrativos = new ArrayList<Administrativo>();
+		this.turnos = new ArrayList<Turno>();
 		this.db = new BaseDeDatos();
+		this.consultorios = new ArrayList<Consultorio>();
+		this.prestaciones = new ArrayList<Prestacion>();
 	}
 	
 	public boolean loginAdmin(String user, String pass) {
@@ -49,7 +57,12 @@ public class SistemaInterno {
 	}
 	
 	public int cantidadEstudiosRealizados(){
-		return 0;
+		int estudiosRealizados = 0;
+		for(Consultorio consultorio : this.consultorios) {
+			List<Estudio> estudios = consultorio.getLaboratorio().getEstudiosRealizados(); // Falta crear este metodo en la clase Consultorio
+			estudiosRealizados += estudios.size();
+		}
+		return estudiosRealizados;
 	}
 
 	public List<Paciente> contarInasistenciasPacientes(){
@@ -60,7 +73,9 @@ public class SistemaInterno {
 		return null;
 	}
 	
-	public boolean brindarTurno(){
+	public boolean brindarTurno(Consultorio consultorio, Date fecha, Date horaFinalizacion, Date horaInicio, Medico medico, Paciente paciente){
+		Turno turno = new Turno(consultorio, fecha, horaFinalizacion, horaInicio, medico, paciente);
+		
 		return false;
 	}
 
@@ -73,7 +88,7 @@ public class SistemaInterno {
 	}
 
 	public List<Turno> verTurnos(){
-		return null;
+		return this.turnos;
 	}
 
 }
