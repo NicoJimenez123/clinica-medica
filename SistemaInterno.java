@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 /**
  * @author Nicolas Jimenez
  * @version 1.0
@@ -14,6 +15,7 @@ public class SistemaInterno {
 	private List<Turno> turnos;
 	private List<Consultorio> consultorios;
 	private List<Prestacion> prestaciones;
+	private List<Paciente> pacientes;
 	
 	public SistemaInterno(){
 		// Habria que hacer un metodo para rellenar estos atributos y no tener que escribir a cada rato
@@ -22,6 +24,7 @@ public class SistemaInterno {
 		this.db = new BaseDeDatos();
 		this.consultorios = new ArrayList<Consultorio>();
 		this.prestaciones = new ArrayList<Prestacion>();
+		this.pacientes = new ArrayList<Paciente>();
 	}
 	
 	public boolean loginAdmin(String user, String pass) {
@@ -66,17 +69,47 @@ public class SistemaInterno {
 	}
 
 	public List<Paciente> contarInasistenciasPacientes(){
-		return null;
+		List<Paciente> pacientesInasistentes = new ArrayList<Paciente>();
+		HashMap<Paciente, Integer> pacientesEInasistencias = new HashMap<Paciente,Integer>();
+		// Primero reviso los turnos que no fueron concurridos y los guardo en una lista aparte
+		List<Turno> turnosNoConcurridos = new ArrayList<Turno>();
+		for(Turno t : this.turnos) {
+			if(!t.fueConcurrido()) {
+				// Voy contando las inasistencias por paciente mientras lo guardo en un diccionaro del tipo Paciente-Inasistencias
+				Paciente p = t.getPaciente();
+				Integer i = 0;
+				if(pacientesEInasistencias.containsKey(t.getPaciente())) {
+					// Pregunto si el paciente ya se encuentra en la lista y si lo está le sumo una inasistencia
+					i = pacientesEInasistencias.get(p) + 1;
+					pacientesEInasistencias.put(p, i);
+				}
+				else {
+					// Si el paciente no esta en la lista, lo agrego con una asistencia
+					pacientesEInasistencias.put(p, 1);
+				}
+			}
+			// Si fue concurrido no hago nada
+		}
+		// Una vez que tengo a los pacientes y sus inasistencias, voy comparando las inasistencias con el numero permitido de ellas.
+		int inasistenciasMaximas = 3;
+		for(Paciente p : pacientesEInasistencias.keySet()) {
+			if(pacientesEInasistencias.get(p) >= inasistenciasMaximas) {
+				// Si supera las inasistencias maximas lo agrego a la lista de pacientes a llamar por el personal administrativo
+				pacientesInasistentes.add(p);
+			}
+		}
+		return pacientesInasistentes;
 	}
 	
 	public HashMap<Medico,Integer> prestacionesBrindadas(){
 		return null;
 	}
 	
-	public boolean brindarTurno(Consultorio consultorio, Date fecha, Date horaFinalizacion, Date horaInicio, Medico medico, Paciente paciente){
-		Turno turno = new Turno(consultorio, fecha, horaFinalizacion, horaInicio, medico, paciente);
+	public boolean brindarTurno(int consultorio, Date fecha, Date horaFinalizacion, Date horaInicio, Medico medico, Paciente paciente){
+		List<Consultorio> consultoriosAux;
 		
-		return false;
+		Turno turno = new Turno(consultorio, fecha, horaFinalizacion, horaInicio, medico, paciente);
+		return true;
 	}
 
 	public List<Especialidad> especialidadesTurnosDisponibles(){
