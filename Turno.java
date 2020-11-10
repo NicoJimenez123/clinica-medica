@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Turno {
 	
-	private Consultorio consultorio;	
+	private int consultorio;	
     private Date fecha;
     private Date horaFinaliacion;
     private Date horaInicio;
@@ -13,10 +13,10 @@ public class Turno {
     
 	
     
-    public Turno(Consultorio consultorio, Date fecha, Date horaFinaliacion, Date horaInicio, Medico medico,
+    public Turno(int consultorio2, Date fecha, Date horaFinaliacion, Date horaInicio, Medico medico,
 			Paciente paciente) {
 		super();
-		this.consultorio = consultorio;
+		this.consultorio = consultorio2;
 		this.fecha = fecha;
 		this.horaFinaliacion = horaFinaliacion;
 		this.horaInicio = horaInicio;
@@ -25,12 +25,12 @@ public class Turno {
 	}
 
 
-	public Consultorio getConsultorio() {
+	public int getConsultorio() {
 		return consultorio;
 	}
 
 
-	public void setConsultorio(Consultorio consultorio) {
+	public void setConsultorio(int consultorio) {
 		this.consultorio = consultorio;
 	}
 
