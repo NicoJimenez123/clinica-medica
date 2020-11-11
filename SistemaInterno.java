@@ -101,7 +101,11 @@ public class SistemaInterno {
 	}
 	
 	public HashMap<Medico,Integer> prestacionesBrindadas(){
-		return null;
+		HashMap<Medico,Integer> medicos = new HashMap<Medico,Integer>();
+		for(Medico m : this.prestaciones.getMedico()) {
+			medicos.put(m, (Integer)m.getAsistenciasRegistradas())
+		}
+		return medicos;
 	}
 	
 	public boolean brindarTurno(int consultorio, Date fecha, Date horaFinalizacion, Date horaInicio, Medico medico, Paciente paciente){
