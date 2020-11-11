@@ -111,7 +111,30 @@ public class SistemaInterno {
 	}
 	
 	public boolean brindarTurno(int consultorio, LocalDate fecha, LocalTime horaFinalizacion, LocalTime horaInicio, Medico medico, Paciente paciente){
+		List<Turno> turnosFechaIndicada = new ArrayList<Turno>();
+		for(Turno t : this.turnos) {
+			// Voy recorriendo los turnos
+			if(t.getFecha().isEqual(fecha)) {
+				// Si la fecha del turno es igual a la pasada por parametro, agrego el turno a la lista
+				turnosFechaIndicada.add(t);
+			}
+		}
+		boolean band = false; // bandera para saber si se encontró un turno con la misma horaInicio que el pasado por parametro.
+		for(Turno t : turnosFechaIndicada) {
+			// Voy recorriendo cada turno y hago la comparacion
+			if(t.getHoraInicio().compareTo(horaInicio) == 1) {
+				// Si ambos turnos empiezan a la misma hora ya no puedo crear uno con los parametros pasados
+				band = true;
+			}
+		}
+		// Ahora pregunto el estado de la bandera para saber si hubo algun turno con el que se superpondria
+		if(band) {
+			// Si hubo algun turno con la misma hora de inicio, no puedo crear uno
+			return false;
+		}
+		//por el contrario creo el turno y aviso con el return true que pudo ser creado
 		Turno turno = new Turno(consultorio, fecha, horaFinalizacion, horaInicio, medico, paciente);
+		this.turnos.add(turno);
 		return true;
 	}
 
