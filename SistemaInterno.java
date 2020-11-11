@@ -3,6 +3,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.time.*;
 /**
  * @author Nicolas Jimenez
  * @version 1.0
@@ -109,14 +110,14 @@ public class SistemaInterno {
 		return medicos;
 	}
 	
-	public boolean brindarTurno(int consultorio, Date fecha, Date horaFinalizacion, Date horaInicio, Medico medico, Paciente paciente){
-		List<Consultorio> consultoriosAux;
-		
+	public boolean brindarTurno(int consultorio, LocalDate fecha, LocalTime horaFinalizacion, LocalTime horaInicio, Medico medico, Paciente paciente){
 		Turno turno = new Turno(consultorio, fecha, horaFinalizacion, horaInicio, medico, paciente);
 		return true;
 	}
 
 	public List<Especialidad> especialidadesTurnosDisponibles(){
+		// Voy a desarrollar el metodo en base a que se pregunta por los turnos que se pueden dar en el dia de la fecha
+		LocalDate hoy = LocalDate.now();
 		return null;
 	}
 
