@@ -135,6 +135,7 @@ public class SistemaInterno {
 		//por el contrario creo el turno y aviso con el return true que pudo ser creado
 		Turno turno = new Turno(consultorio, fecha, horaFinalizacion, horaInicio, medico, paciente);
 		this.turnos.add(turno);
+		paciente.setTurnos(turno);
 		return true;
 	}
 

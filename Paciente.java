@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class Paciente {
 	
@@ -5,17 +7,17 @@ public class Paciente {
 	private  String apellido; 
 	private int dni;
 	private String direccion;
-	private Turno turnos;
+	private List<Turno> turnos;
 	
 	
 	
-	public Paciente(String nombre, String apellido, int dni, String direccion, Turno turnos) {
+	public Paciente(String nombre, String apellido, int dni, String direccion) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.dni = dni;
 		this.direccion = direccion;
-		this.turnos = turnos;
+		this.turnos = new ArrayList<Turno>();
 	}
 
 
@@ -68,14 +70,14 @@ public class Paciente {
 
 
 
-	public Turno getTurnos() {
+	public List<Turno> getTurnos() {
 		return turnos;
 	}
 
 
 
-	public void setTurnos(Turno turnos) {
-		this.turnos = turnos;
+	public void setTurnos(Turno turno) {
+		this.turnos.add(turno);
 	}
 	
 	
