@@ -101,9 +101,10 @@ public class SistemaInterno {
 	}
 	
 	public HashMap<Medico,Integer> prestacionesBrindadas(){
+		// Metodo para obtener un reporte de la cantidad de prestaciones brindadas por cada metodo
 		HashMap<Medico,Integer> medicos = new HashMap<Medico,Integer>();
 		for(Medico m : this.prestaciones.getMedico()) {
-			medicos.put(m, (Integer)m.getAsistenciasRegistradas())
+			medicos.put(m, new Integer(m.getAsistenciasRegistradas()));
 		}
 		return medicos;
 	}
