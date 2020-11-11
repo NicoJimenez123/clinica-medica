@@ -117,7 +117,6 @@ public class SistemaInterno {
 
 	public List<Especialidad> especialidadesTurnosDisponibles(){
 		// Voy a desarrollar el metodo en base a que se pregunta por los turnos que se pueden dar en el dia de la fecha
-		LocalDate hoy = LocalDate.now();
 		return null;
 	}
 
@@ -125,8 +124,8 @@ public class SistemaInterno {
 		return null;
 	}
 
-	public List<Turno> verTurnos(){
-		return this.turnos;
+	public List<Turno> verTurnos(Paciente p){
+		return p.getTurnos();
 	}
 
 }
