@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Prestacion {
 
 	private Medico doctor;
-	private String nombrePrestación;
+	private String nombrePrestacion;
 	public Medico m_Medico;
 	public AreaMedica m_AreaMedica;
 	private Consultorio m_Consultorio;
@@ -32,5 +32,51 @@ public class Prestacion {
 
 		return "Receta: \n" + entradaTeclado;
 	}
+
+
+	// GETTERS
+
+	public Medico getDoctor(){
+		return this.doctor;
+	}
+
+	public String getNombrePrestacion(){
+		return this.nombrePrestacion;
+	}
+
+	public Medico getm_Medico(){
+		return this.m_Medico;
+	}
+
+	public AreaMedica getm_AreaMedica(){
+		return this.m_AreaMedica;
+	}
+
+	public Consultorio getm_Consultorio(){
+		return this.m_Consultorio;
+	}
+
+	// SETTERS 
+	public void setDoctor(Doctor doctor){
+		this.doctor = doctor;
+	}
+
+	public void setNombrePrestacion(String nombrePrestacion){
+		this.nombrePrestacion = nombrePrestacion;
+	}
+
+	public void setm_Medico(Medico m_Medico){
+		this.m_Medico = m_Medico;
+	}
+
+	public void setm_AreaMedica(AreaMedica m_AreaMedica){
+		this.m_AreaMedica = m_AreaMedica;
+	}
+
+	public void setm_Consultorio(Consultorio m_Consultorio){
+		this.m_Consultorio = m_Consultorio;
+	}
+
+
 
 }
