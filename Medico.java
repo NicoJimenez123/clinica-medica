@@ -6,9 +6,13 @@ public class Medico {
 	//private String id;   **PROPUESTO**
 
 	private Especialidad especialidad;
+	private int asistenciasRegistradas;
 
 	//CONSTRUCTORES
-	public Medico(){}
+	public Medico(){
+		this.asistenciasRegistradas = 0;
+
+	}
 
 	public Medico(Especialidad especialidad){
 		this.especialidad = especialidad;
@@ -75,15 +79,7 @@ public class Medico {
 	}
 
 	public void registrarAsistencia(){
-		/*
-
-		NOTA
-			Al cargar un nuevoEstudio ya se confirma la asistencia, no? Al 
-			setear asistencia = TRUE
-
-		REVISAR
-
-		*/
+		this.asistenciasRegistradas ++;
 	}
 
 }
