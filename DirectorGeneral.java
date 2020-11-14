@@ -13,8 +13,4 @@ public class DirectorGeneral {
 
 	}
 
-	public void finalize() throws Throwable {
-
-	}
-
 }
